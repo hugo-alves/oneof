@@ -1,0 +1,2 @@
+module BuzzwordsHelper
+end

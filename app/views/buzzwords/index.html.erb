@@ -1,0 +1,27 @@
+<h1>Listing buzzwords</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @buzzwords.each do |buzzword| %>
+      <tr>
+        <td><%= buzzword.title %></td>
+        <td><%= buzzword.url %></td>
+        <td><%= link_to 'Show', buzzword %></td>
+        <td><%= link_to 'Edit', edit_buzzword_path(buzzword) %></td>
+        <td><%= link_to 'Destroy', buzzword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Buzzword', new_buzzword_path %>

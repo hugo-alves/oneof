@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @buzzword.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @buzzword.url %>
+</p>
+
+<%= link_to 'Edit', edit_buzzword_path(@buzzword) %> |
+<%= link_to 'Back', buzzwords_path %>

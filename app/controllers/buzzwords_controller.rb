@@ -42,6 +42,6 @@ class BuzzwordsController < ApplicationController
     end
 
     def buzzword_params
-      params.require(:buzzword).permit(:title, :url)
+      params.require(:buzzword).permit(:title, :url, :industry)
     end
 end

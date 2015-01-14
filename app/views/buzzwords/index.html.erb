@@ -17,8 +17,11 @@
         <td><%= buzzword.url %></td>
         <td><%= buzzword.industry %></td>
         <td><%= link_to 'Show', buzzword %></td>
-        <td><%= link_to 'Edit', edit_buzzword_path(buzzword) %></td>
-        <td><%= link_to 'Destroy', buzzword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if buzzword.user == current_user %>
+          <td><%= link_to 'Edit', edit_buzzword_path(buzzword) %></td>
+          <td><%= link_to 'Destroy', buzzword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +29,3 @@
 
 <br>
 
-<%= link_to 'New Buzzword', new_buzzword_path %>

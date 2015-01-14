@@ -1,5 +1,6 @@
 class BuzzwordsController < ApplicationController
   before_action :set_buzzword, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, except: [:index, :show]
 
   respond_to :html
 
@@ -13,7 +14,7 @@ class BuzzwordsController < ApplicationController
   end
 
   def new
-    @buzzword = Buzzword.new
+    @buzzword = current_user.buzzwords.build
     respond_with(@buzzword)
   end
 
@@ -21,7 +22,7 @@ class BuzzwordsController < ApplicationController
   end
 
   def create
-    @buzzword = Buzzword.new(buzzword_params)
+    @buzzword = current_user.buzzwords.build(buzzword_params)
     @buzzword.save
     respond_with(@buzzword)
   end

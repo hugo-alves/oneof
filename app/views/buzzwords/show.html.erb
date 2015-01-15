@@ -3,7 +3,7 @@
 </div>
 
 <div class="btn-group">
-	<%= link_to 'Visit URL', @buzzword.url, class: "btn btn-primary" %>
+  <%= link_to 'Visit URL', @buzzword.url, class: "btn btn-primary" %>
 </div>
 
 <div class="btn-group pull-right">
@@ -13,16 +13,30 @@
     <%= @buzzword.get_upvotes.size %>
   <% end %>
   <%= link_to dislike_buzzword_path(@buzzword), method: :put, class: "btn btn-default btn-sm" do %>
-    <span class="glyphicon glyphicon-chevron-down">
+    <span class="glyphicon glyphicon-chevron-down"></span>
     Downvote
     <%= @buzzword.get_downvotes.size %>
   <% end %>
 </div>
 
-
 <% if @buzzword.user == current_user -%>
-	<div class="btn-group">
-		<%= link_to 'Edit', edit_buzzword_path(@buzzword), class: "btn btn-default" %>
-		<%= link_to 'Destroy', @buzzword, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
-	</div>
+  <div class="btn-group">
+    <%= link_to 'Edit', edit_buzzword_path(@buzzword), class: "btn btn-default" %>
+    <%= link_to 'Destroy', @buzzword, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+  </div>
+<% end %>
+
+<h3 class="comments_title">
+  <%= @buzzword.comments.count %> Comments
+</h3>
+
+<div id="comments">
+  <%= render :partial => @buzzword.comments %>
+</div>
+<%= simple_form_for [@buzzword, Comment.new]  do |f| %>
+  <div class="field">
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+  <br>
+  <%= f.submit "Add Comment", class: "btn btn-primary" %>
 <% end %>

@@ -1,31 +1,8 @@
-<h1>Listing buzzwords</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Url</th>
-      <th>Industry</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @buzzwords.each do |buzzword| %>
-      <tr>
-        <td><%= buzzword.title %></td>
-        <td><%= buzzword.url %></td>
-        <td><%= buzzword.industry %></td>
-        <td><%= link_to 'Show', buzzword %></td>
-        <% if buzzword.user == current_user %>
-          <td><%= link_to 'Edit', edit_buzzword_path(buzzword) %></td>
-          <td><%= link_to 'Destroy', buzzword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-        
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
+<% @buzzwords.each do |buzzword| %>
+  <div class="link row clearfix">
+    <h2>
+      <%= link_to buzzword.title, buzzword %><br>
+      <small class="author">Submitted <%= time_ago_in_words(buzzword.created_at) %> by <%= buzzword.user.email %></small>
+    </h2>
+  </div>
+<% end %>

@@ -1,4 +1,5 @@
 class Buzzword < ActiveRecord::Base
+	acts_as_votable
 	belongs_to :user
 
 	before_save :tileize_title

@@ -45,6 +45,7 @@ gem 'figaro', '>= 1.0.0.rc1'
 gem 'high_voltage'
 gem 'simple_form'
 gem 'upmin-admin'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development do
   gem 'better_errors'

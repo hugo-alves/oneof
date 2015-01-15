@@ -37,6 +37,18 @@ class BuzzwordsController < ApplicationController
     respond_with(@buzzword)
   end
 
+  def upvote
+    @buzzword = Buzzword.find(params[:id])
+    @buzzword.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @buzzword = Buzzword.find(params[:id])
+    @buzzword.downvote_by current_user
+    redirect_to :back
+  end
+
   private
     def set_buzzword
       @buzzword = Buzzword.find(params[:id])

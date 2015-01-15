@@ -2,7 +2,7 @@
   <div class="buzzword row clearfix">
     <h2>
       <%= link_to buzzword.title, buzzword %><br>
-      <small class="author">Submitted <%= time_ago_in_words(buzzword.created_at) %> by <%= buzzword.user.email %></small>
+      <small class="author">Submitted <%= time_ago_in_words(buzzword.created_at) %> by <%= buzzword.user.name %></small>
     </h2>
 
     <div class="btn-group">

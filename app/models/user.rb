@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  has_many :buzzwords
+  has_many :buzzwords, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
 end

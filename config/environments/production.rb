@@ -83,4 +83,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  GoogleTagManager.gtm_id = "GTM-TC9CFB" # Where GTM-XXXX is your container ID from Google Tag Manager
 end

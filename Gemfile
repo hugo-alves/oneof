@@ -28,6 +28,8 @@ gem 'spring',        group: :development
 
 gem 'mandrill_mailer'
 
+gem 'google-tag-manager-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

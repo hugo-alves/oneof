@@ -1,5 +1,5 @@
 class Buzzword < ActiveRecord::Base
-	acts_as_votable
+	acts_as_voteable
 	belongs_to :user
 	has_many :comments, dependent: :destroy
 	has_many :links, dependent: :destroy

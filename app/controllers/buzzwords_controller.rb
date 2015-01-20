@@ -39,13 +39,13 @@ class BuzzwordsController < ApplicationController
 
   def upvote
     @buzzword = Buzzword.find(params[:id])
-    @buzzword.upvote_by current_user
+    current_user.vote_exclusively_for(@buzzword)
     redirect_to :back
   end
 
   def downvote
     @buzzword = Buzzword.find(params[:id])
-    @buzzword.downvote_by current_user
+    current_user.vote_exclusively_against(@buzzword)
     redirect_to :back
   end
 

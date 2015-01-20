@@ -1,4 +1,5 @@
 class Comment < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :buzzword
+	acts_as_voteable
+	belongs_to :user
+	belongs_to :buzzword
 end

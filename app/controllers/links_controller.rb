@@ -21,8 +21,9 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = Link.new(link_params)
+    @link = current_user.links.build(link_params)
     @link.save
+    @link.user_id = current_user.id
     respond_with(@link)
   end
 

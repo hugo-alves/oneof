@@ -12,12 +12,12 @@
   <%= link_to like_buzzword_path(@buzzword), method: :put, class: "btn btn-default btn-sm" do %>
     <span class="glyphicon glyphicon-chevron-up"></span>
     Upvote
-    <%= @buzzword.get_upvotes.size %>
+    <%= @buzzword.votes_for %>
   <% end %>
   <%= link_to dislike_buzzword_path(@buzzword), method: :put, class: "btn btn-default btn-sm" do %>
     <span class="glyphicon glyphicon-chevron-down"></span>
     Downvote
-    <%= @buzzword.get_downvotes.size %>
+    <%= @buzzword.votes_against %>
   <% end %>
 </div>
 
@@ -28,17 +28,6 @@
   </div>
 <% end %>
 
-<div>
-  <% @links.each do |link| %>
-    <tr>
-      <td><%= link.title %></td>
-      <td><%= link.url %></td>
-      <td><%= link_to 'Show', link %></td>
-      <td><%= link_to 'Edit', edit_link_path(link) %></td>
-      <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</div>
 
 
 <h3 class="comments_title">

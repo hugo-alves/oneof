@@ -50,6 +50,7 @@ gem 'high_voltage'
 gem 'simple_form'
 gem 'upmin-admin'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'thumbs_up', git: 'https://github.com/bouchard/thumbs_up.git', ref: 'f499a7'
 
 group :development do
   gem 'better_errors'

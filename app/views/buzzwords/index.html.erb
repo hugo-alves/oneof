@@ -1,8 +1,11 @@
 <% @buzzwords.each do |buzzword| %>
   <div class="buzzword row clearfix">
+    <h3 class="comments_title">
+      <%= buzzword.comments.count %> Comments
+    </h3>
     <h2>
       <%= link_to buzzword.title, buzzword %><br>
-      <div><small>Industry-> <%= buzzword.industry %></small></div>
+      <div>Industry-> <%= buzzword.industry %></div>
       <small class="author">Submitted <%= time_ago_in_words(buzzword.created_at) %> by <%= buzzword.user.name %></small> 
     </h2>
 
@@ -11,12 +14,12 @@
       <%= link_to like_buzzword_path(buzzword), method: :put, class: "btn btn-default btn-sm" do %>
         <span class="glyphicon glyphicon-chevron-up"></span>
         Upvote
-        <%= buzzword.get_upvotes.size %>
+        <%= buzzword.votes_for %>
       <% end %>
       <%= link_to dislike_buzzword_path(buzzword), method: :put, class: "btn btn-default btn-sm" do %>
         <span class="glyphicon glyphicon-chevron-down"></span>
         Downvote
-        <%= buzzword.get_downvotes.size %>
+        <%= buzzword.votes_against %>
       <% end %>
     </div>
   </div>

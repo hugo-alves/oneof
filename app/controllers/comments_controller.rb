@@ -28,6 +28,18 @@ class CommentsController < ApplicationController
     end
   end
 
+  def upvote
+    @comment = Comment.find(params[:id])
+    current_user.vote_exclusively_for(@comment)
+    redirect_to :back
+  end
+
+  def downvote
+    @comment = Comment.find(params[:id])
+    current_user.vote_exclusively_against(@comment)
+    redirect_to :back
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment

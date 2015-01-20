@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :links
 
-  resources :comments
+  resources :comments do
+    member do
+      put "like",    to: "comments#upvote"
+      put "dislike", to: "comments#downvote"
+    end
+  end
 
   devise_for :users
   resources :buzzwords do
